@@ -1,40 +1,44 @@
-# Renewable Energy Essay Generator
+# Essay on Renewable Energy and LLM Impact
 
 ## Summary
 
-This is a minimal, single-page, interactive web application that generates a short essay on the importance of renewable energy sources. The user is presented with a pre-filled topic and can click a button to display the essay on the page. The application is built with vanilla HTML, CSS, and JavaScript, with no external dependencies.
+This is a minimal, single-page web application that displays an essay on the importance of renewable energy sources and the environmental impact of Large Language Models (LLMs). The application features a simple interactive form. When the user clicks the "Generate Essay" button, the pre-written essay is displayed on the page.
 
 ## Setup
 
-No installation or build process is required. Simply open the `index.html` file in any modern web browser.
+No installation or server is required. This is a standalone HTML file.
 
-1.  Clone or download the repository/files.
-2.  Navigate to the directory containing the files.
-3.  Double-click `index.html` or open it using your browser's "File > Open" menu.
+1.  Save the `index.html` file to your local machine.
+2.  Open the `index.html` file directly in any modern web browser (e.g., Chrome, Firefox, Safari).
 
 ## Usage
 
 1.  Open `index.html` in your browser.
-2.  The input field will be pre-filled with the essay topic: "Write a short essay on the importance of renewable energy sources."
-3.  Click the "Generate Essay" button.
-4.  The generated essay will appear below the button.
+2.  You will see a title and a simple form.
+3.  Optionally, enter your name in the input field.
+4.  Click the "Generate Essay" button.
+5.  The essay will appear below the form.
 
 ## Code Explanation
 
--   **`index.html`**: This single file contains all the necessary code.
-    -   **HTML**: The structure of the page, including a title, a form with a text input and a submit button, and a `div` element (`#essayOutput`) to hold the generated content.
-    -   **CSS**: Basic styling is included within a `<style>` tag in the `<head>` for a clean and centered layout. It styles the main container, form elements, and the output area.
-    -   **JavaScript**: The logic is contained within a `<script>` tag at the end of the `<body>`.
-        -   It adds a `submit` event listener to the form.
+-   **`index.html`**: This single file contains all the necessary HTML, CSS, and JavaScript.
+    -   **HTML**: Structures the page with a main heading, a form (`<form id="essayForm">`), and a container (`<div id="essayContainer">`) where the essay will be rendered.
+    -   **CSS**: A `<style>` block in the `<head>` provides basic styling for a clean, centered layout and improved readability.
+    -   **JavaScript**: A `<script>` block at the end of the `<body>` handles the interactivity.
+        -   It defines the complete essay text as a string variable.
+        -   An event listener is attached to the form's `submit` event.
         -   When the form is submitted, `event.preventDefault()` is called to stop the page from reloading.
-        -   A pre-written essay is stored in a template literal.
-        -   The `innerHTML` of the `#essayOutput` div is updated with the essay content, which is formatted with `<p>` tags for proper paragraph structure.
+        -   The script then populates the `essayContainer`'s `innerHTML` with the essay text, making it visible to the user.
 
 ## Version Update Information
 
--   **v1.0.0** (2023-10-27)
+-   **v1.1.0** (2023-10-27)
+    -   Updated the essay content to include a section on the environmental impact of Large Language Models (LLMs).
+    -   Updated the title and headings to reflect the new content.
+
+-   **v1.0.0** (2023-10-26)
     -   Initial release.
-    -   Includes HTML structure, CSS styling, and JavaScript for essay generation.
+    -   Application displays a short essay on the importance of renewable energy sources.
 
 ## License
 
