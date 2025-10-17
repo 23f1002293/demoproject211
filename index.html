@@ -3,99 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renewable Energy Essay Generator</title>
+    <title>Essay on Renewable Energy & LLMs</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f7f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f9;
             color: #333;
+            margin: 0;
+            padding: 2rem;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
         }
-        .container {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        main {
             max-width: 800px;
             width: 100%;
-            text-align: center;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         h1 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
+            color: #1a253c;
+            text-align: center;
         }
         form {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            align-items: center;
             margin-bottom: 2rem;
         }
         input[type="text"] {
-            padding: 0.75rem;
+            padding: 0.5rem;
             border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 1rem;
+            margin-bottom: 1rem;
+            width: 60%;
         }
         button {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            background-color: #27ae60;
+            background-color: #007bff;
             color: white;
-            font-size: 1rem;
-            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 1rem;
             transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #229954;
+            background-color: #0056b3;
         }
-        #essayOutput {
-            text-align: left;
-            line-height: 1.6;
+        #essayContainer {
             border-top: 1px solid #eee;
-            padding-top: 1.5rem;
-            color: #555;
+            padding-top: 1rem;
         }
-        #essayOutput p {
-            margin: 0 0 1em 0;
+        #essayContainer p {
+            margin-bottom: 1em;
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Essay Generator</h1>
+    <main>
+        <h1>The Dual Imperative: Renewable Energy and AI's Environmental Footprint</h1>
+        
         <form id="essayForm">
-            <label for="topicInput">Topic:</label>
-            <input type="text" id="topicInput" value="Write an short essay on the importance of renewable energy sources." readonly>
+            <p>Click the button below to generate the essay.</p>
             <button type="submit">Generate Essay</button>
         </form>
-        <div id="essayOutput"></div>
-    </div>
+
+        <article id="essayContainer"></article>
+    </main>
 
     <script>
-        document.getElementById('essayForm').addEventListener('submit', function(event) {
+        const essayForm = document.getElementById('essayForm');
+        const essayContainer = document.getElementById('essayContainer');
+
+        const essayText = `
+            <p>Our planet stands at a critical juncture, facing the escalating threat of climate change driven primarily by our reliance on fossil fuels. The imperative to transition to renewable energy sources—such as solar, wind, geothermal, and hydropower—has never been more urgent. These sources represent the cornerstone of a sustainable future, offering a path to decarbonize our economies, enhance energy security, and mitigate the environmental degradation that jeopardizes global stability.</p>
+            <p>The benefits of embracing renewables are multifaceted. Environmentally, they produce little to no greenhouse gas emissions, directly combating the warming of our planet. Economically, they foster innovation, create green jobs, and can provide stable energy prices, free from the geopolitical volatility associated with fossil fuels. By decentralizing power generation, renewables also increase the resilience of our energy grids, ensuring a more reliable supply for communities and industries.</p>
+            <p>However, as we champion this green transition, a new and powerful technological force has emerged with its own significant environmental footprint: Large Language Models (LLMs) and the broader field of artificial intelligence. While AI holds immense promise for solving complex problems, including optimizing energy grids and climate modeling, its development and operation are incredibly resource-intensive.</p>
+            <p>The environmental impact of LLMs is substantial. Training a single state-of-the-art model requires vast amounts of computational power, consuming electricity equivalent to hundreds of households for a year. This energy is drawn from data centers that also require immense quantities of fresh water for cooling. The carbon cost is not a one-time event; every query and task an LLM performs (inference) adds to its cumulative energy consumption. If the data centers powering this AI revolution run on fossil fuels, we risk undermining our climate goals, creating a paradox where a tool for progress inadvertently accelerates the crisis it could help solve.</p>
+            <p>This reality brings the two topics into sharp focus. The future of sustainable technological advancement is inextricably linked to the future of energy. To harness the full potential of AI without compromising our planet, we must commit to powering our digital infrastructure with 100% renewable energy. The challenge, therefore, is twofold: to build a clean energy foundation and to ensure that the technologies built upon it are designed and operated with sustainability as a core principle. Only by addressing both sides of this equation can we achieve true, lasting progress.</p>
+        `;
+
+        essayForm.addEventListener('submit', function(event) {
             event.preventDefault();
-
-            const essayText = `
-                <h2>The Imperative of Renewable Energy</h2>
-                <p>The transition from fossil fuels to renewable energy sources is arguably one of the most critical challenges of our time. In an era defined by climate change and environmental degradation, the importance of renewables like solar, wind, geothermal, and hydropower cannot be overstated. They represent a fundamental shift towards a sustainable, secure, and economically viable energy future, moving away from the finite and destructive models of the past.</p>
-                <p>Primarily, the environmental benefits of renewable energy are its most compelling advantage. Unlike fossil fuels, which release vast quantities of greenhouse gases such as carbon dioxide and methane, renewable sources generate power with minimal to zero emissions. This directly combats global warming, mitigates its catastrophic effects like extreme weather events, and helps preserve delicate ecosystems. Furthermore, the adoption of clean energy reduces air and water pollution, leading to improved public health and a lower incidence of respiratory illnesses.</p>
-                <p>Beyond environmental stewardship, renewable energy offers significant economic and social advantages. The green energy sector is a powerful engine for job creation, fostering innovation in manufacturing, installation, and maintenance. By diversifying the energy portfolio, nations can reduce their dependence on volatile international fossil fuel markets, thereby enhancing national security and stabilizing energy prices. For communities, distributed energy systems, such as rooftop solar panels, can provide energy independence and resilience, particularly in remote or underserved areas.</p>
-                <p>In conclusion, embracing renewable energy is not merely an environmental choice but a necessary step towards a more resilient and prosperous global society. The path requires significant investment, policy support, and technological advancement, but the long-term rewards—a stable climate, cleaner air, and a sustainable economy—are essential for the well-being of current and future generations. The shift to renewable energy is an investment in the very future of our planet.</p>
-            `;
-
-            const outputDiv = document.getElementById('essayOutput');
-            outputDiv.innerHTML = essayText;
+            essayContainer.innerHTML = essayText;
         });
     </script>
-
 </body>
 </html>
